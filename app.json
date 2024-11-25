@@ -1,13 +1,14 @@
 {
   "expo": {
     "name": "decajonapp",
-    "slug": "snack-a24de864-ea29-4b03-81a9-88c997d3f097",
+    "slug": "snack-b2baa3e4-ffe4-4dd8-86a3-9ff82e5fb7a1",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
+    "newArchEnabled": true,
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
