@@ -6,6 +6,10 @@ https://www.figma.com/proto/fHrJh8bizFApcODBeHdw6u/Untitled?node-id=1-2&node-typ
 ## Snack Expo Go
 https://snack.expo.dev/@mblml/decajonapp
 
-![1](https://github.com/user-attachments/assets/b24fca05-4af0-4402-9ce3-c32258d78d15)
-![2](https://github.com/user-attachments/assets/7ea69703-db0b-44af-937e-ce9ffb364086)
-![3](https://github.com/user-attachments/assets/26300ee1-ac57-49e4-9711-4b77a893bd5c)
+![imagen](https://github.com/user-attachments/assets/a78d31b6-f1ac-4b91-99d3-5af5b6415f7f)
+
+![imagen](https://github.com/user-attachments/assets/a900a74b-4a68-4635-a31b-7181e0a9e7a3)
+
+![imagen](https://github.com/user-attachments/assets/0b8895be-4e24-460d-a99d-0ee3fbf74a11)
+
+![imagen](https://github.com/user-attachments/assets/907a1445-dd78-450e-a5f2-404a237592cd)
