@@ -1,14 +1,12 @@
 /*  // app.js
 import React from 'react';
-import MyApp from './login';
+import MyApp from './resetPassword1';
 
 const App = () => {
   return <MyApp />;
 };
 
-export default App;
- */
-
+export default App; */
 
 
 
@@ -19,6 +17,7 @@ import Load from './load';
 import Login from './login';
 import CreateAccount from './createAccount';
 import ResetPassword from './resetPassword';
+import ResetPassword1 from './resetPassword1';
 
 const App = () => {
   const [currentScreen, setCurrentScreen] = useState('Load');
@@ -31,7 +30,7 @@ const App = () => {
       useNativeDriver: true,
     }).start();
 
-    const screens = ['Load', 'Login', 'CreateAccount', 'ResetPassword'];
+    const screens = ['Load', 'Login', 'CreateAccount', 'ResetPassword', 'ResetPassword1']; 
     let currentIndex = 0;
 
     const timer = setInterval(() => {
@@ -74,6 +73,8 @@ const App = () => {
         return <CreateAccount />;
       case 'ResetPassword':
         return <ResetPassword />;
+      case 'ResetPassword1': 
+        return <ResetPassword1 />;
       default:
         return <Load />;
     }
