@@ -1,17 +1,17 @@
 /*  // app.js
 import React from 'react';
-import MyApp from './resetPassword1';
+import MyApp from './load';
 
 const App = () => {
   return <MyApp />;
 };
 
-export default App; */
-
+export default App; 
+ */
 
 
 // app.js
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'; 
 import { Animated, View } from 'react-native';
 import Load from './load';
 import Login from './login';
@@ -90,3 +90,4 @@ const App = () => {
 };
 
 export default App;
+
