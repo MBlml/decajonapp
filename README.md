@@ -1,6 +1,6 @@
-![Captura desde 2024-12-02 10-21-58](https://github.com/user-attachments/assets/fcb7e619-e482-496b-b561-9bb3f8333349)
+![WhatsApp Image 2024-12-09 at 12 37 38 PM(1)](https://github.com/user-attachments/assets/16070c61-ebc7-482c-b772-bca60995c0f2)
 
-![Captura desde 2024-12-02 10-22-15](https://github.com/user-attachments/assets/7be18948-72da-4d9f-92bd-667e153bc751)
+![WhatsApp Image 2024-12-09 at 12 37 38 PM](https://github.com/user-attachments/assets/c7995834-cc7c-46f4-a7ae-6101bd911563)
 
 ![Captura desde 2024-12-02 10-22-17](https://github.com/user-attachments/assets/629e1bf4-20e5-4e0b-9b58-f62309445c63)
 
