@@ -96,6 +96,10 @@ const CreateAccount = () => {
             />
           </View>
 
+          <Text style={styles.redText}>
+            ( ! ) Valor (campo) inválido, verificar.
+          </Text>
+
         <TouchableOpacity style={styles.button} onPress={handleLogin}>
           <Text style={styles.buttonText}>Siguiente</Text>
         </TouchableOpacity>
@@ -157,7 +161,7 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 50,
     alignItems: 'center',
-    marginTop: 80,
+    marginTop: 53,
     width: '80%',
 
     shadowColor: '#200606',
@@ -192,6 +196,10 @@ const styles = StyleSheet.create({
     fontSize: 20,
     paddingTop: 15,
     textAlign: 'center',
+  },
+  redText: {
+    color: 'red',
+    fontSize: 20,
   },
   btnContainer: {
     width: '100%',

@@ -4,8 +4,6 @@ import {
   Text,
   View,
   Image,
-  TextInput,
-  TouchableOpacity,
 } from 'react-native';
 
 const Load = () => {
@@ -32,7 +30,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgb(251 242 226)',
+    backgroundColor: '#F7EDE1',
   },
   container: {
     justifyContent: 'center',
@@ -40,8 +38,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: 250,
-    height: 200,
-    marginBottom: 25,
+    resizeMode: 'contain',
   },
   txt: {
     fontSize: 20,

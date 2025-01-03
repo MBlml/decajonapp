@@ -9,36 +9,47 @@ import {
 } from 'react-native';
 
 const ResetPassword = () => {
-  const [email, setEmail] = useState('');
+  const [newPassword, setnewPassword] = useState('');
+  const [confirmPassword, setconfirmPassword] = useState('');
   
 
   const handleLogin = () => {
-    console.log('Email:', email);
+    console.log('newPassword:', newPassword);
+    console.log('confirmPassword:', setconfirmPassword);
   };
 
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.title}>Olvidé mi contraseña</Text>
-
+        <Text style={styles.title}>Reestablecer Contraseña</Text>
         <Text style={styles.description}>
-          Si el correo está registrado, enviaremos un correo con un
-          link para crear una nueva contraseña
+          La contraseña debe cumplir los siguientes requisitos:
         </Text>
-
       </View>
 
       
       <View style={styles.form}>
+        <Text style={styles.description1}>
+          • Entre 8-24 caracteres{"\n"}
+          • Mayusculas y {"\n"}   minusculas{"\n"}
+          • Al menos un caracter especial{"\n"}
+        </Text>
+
         <TextInput
           style={styles.input}
-          placeholder="Email"
-          onChangeText={setEmail}
-          value={email}
+          placeholder="Nueva contraseña"
+          onChangeText={setnewPassword}
+          value={setnewPassword}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Confirmar contraseña"
+          onChangeText={setconfirmPassword}
+          value={setconfirmPassword}
         />
 
         <TouchableOpacity style={styles.button} onPress={handleLogin}>
-          <Text style={styles.buttonText}>Crear cuenta</Text>
+          <Text style={styles.buttonText}>Reestablecer</Text>
         </TouchableOpacity>
       </View>
       <View style={styles.footer}>
@@ -55,16 +66,25 @@ const styles = StyleSheet.create({
   image: {
     width: 150,
     height: 110,
-    marginTop: 300,
+    marginTop: 500,
   },
   description: {
     fontSize: 22,
-    textAlign: 'center',
+    paddingLeft: 30,
+    paddingRight: 30,
     color: 'gray',
     marginTop: 25,
     marginRight: 0,
     marginBottom: 0,
     marginLeft: 0,
+  },
+  description1: {
+    fontSize: 22,
+    color: 'gray',
+    marginTop: 0,
+    paddingRight: 0,
+    marginBottom: 15,
+    paddingLeft: 25,
   },
   container: {
     flex: 1,
@@ -97,6 +117,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     backgroundColor: '#d9d9d9',
     borderColor: 'transparent',
+    color: 'gray',
     borderRadius: 10,
     padding: 10,
     marginVertical: 10,
@@ -107,7 +128,7 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 50,
     alignItems: 'center',
-    marginTop: 10,
+    marginTop: 20,
   },
   buttonText: {
     fontSize: 20,
@@ -118,7 +139,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#a18b7f',
     borderRadius: 20,
     height: '100%',
-    top: -180,
+    top: -300,
     alignItems: 'center',
   },
 });

@@ -54,6 +54,10 @@ const App = () => {
             />
           </View>
 
+          <Text style={styles.redText}>
+            ( ! ) Correo o contraseña incorrectos.
+          </Text>
+
           <TouchableOpacity
             style={styles.forgotPassword}
             onPress={() => console.log('Forgot Password')}>
@@ -125,7 +129,7 @@ const styles = StyleSheet.create({
   forgotPassword: {
     padding: 10,
     alignItems: 'center',
-    marginTop: 20,
+    marginTop: -7,
   },
   button: {
     backgroundColor: '#200606',
@@ -163,6 +167,11 @@ const styles = StyleSheet.create({
     color: '#763F0F',
     fontSize: 20,
     paddingTop: 15,
+  },
+  redText: {
+    fontSize: 20,
+    color: 'red',
+    textAlign: 'center',
   },
   emailInput: {
     display: 'flex',
