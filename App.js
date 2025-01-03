@@ -1,14 +1,24 @@
 // app.js
 import React from 'react';
+<<<<<<< HEAD
 import MyApp from './createAccount-incorrect.js';
+=======
+import MyApp from './load';
+>>>>>>> b9c1e8de9d11e43788a590c439fef75b499b2f89
 
 const App = () => {
   return <MyApp />;
 };
 
 export default App; 
+<<<<<<< HEAD
 
 /*
+=======
+ */
+
+
+>>>>>>> b9c1e8de9d11e43788a590c439fef75b499b2f89
 // app.js
 import React, { useState, useEffect } from 'react'; 
 import { Animated, View } from 'react-native';
@@ -90,4 +100,7 @@ const App = () => {
 
 export default App;
 
+<<<<<<< HEAD
  */
+=======
+>>>>>>> b9c1e8de9d11e43788a590c439fef75b499b2f89

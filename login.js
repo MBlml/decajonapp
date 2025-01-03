@@ -24,12 +24,21 @@ const App = () => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
+<<<<<<< HEAD
         <Image style={styles.image} source={require('./assets/logo.png')} />
+=======
+        <Image style={styles.image} source={require('./assets/guitarra.png')} />
+>>>>>>> b9c1e8de9d11e43788a590c439fef75b499b2f89
       </View>
 
       <View style={styles.body}>
         <Text style={styles.title}>Iniciar Sesión</Text>
 
+<<<<<<< HEAD
+=======
+        <Image style={styles.image2} source={require('./assets/logo.png')} />
+
+>>>>>>> b9c1e8de9d11e43788a590c439fef75b499b2f89
         <View style={styles.form}>
           <View style={styles.emailInput}>
             <Icon name="email" color="#200606" size={30} />
@@ -93,6 +102,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#200606',
     marginLeft: 38,
+<<<<<<< HEAD
     marginTop: 50,
   },
   image: {
@@ -102,6 +112,23 @@ const styles = StyleSheet.create({
   },
   form: {
     paddingTop: 20,
+=======
+  },
+  image: {
+    width: '100%',
+    height: 400,
+  },
+  image2: {
+    position: 'absolute',
+    width: '50%',
+    height: 150,
+    right: 15,
+    top: 50,
+    opacity: 0.2,
+  },
+  form: {
+    paddingTop: 30,
+>>>>>>> b9c1e8de9d11e43788a590c439fef75b499b2f89
     alignItems: 'center',
   },
   input: {
@@ -125,7 +152,10 @@ const styles = StyleSheet.create({
   forgotPassword: {
     padding: 10,
     alignItems: 'center',
+<<<<<<< HEAD
     marginTop: 20,
+=======
+>>>>>>> b9c1e8de9d11e43788a590c439fef75b499b2f89
   },
   button: {
     backgroundColor: '#200606',
@@ -133,7 +163,11 @@ const styles = StyleSheet.create({
     marginBottom: -5,
     borderRadius: 50,
     alignItems: 'center',
+<<<<<<< HEAD
     width: '80%',
+=======
+    width: 160,
+>>>>>>> b9c1e8de9d11e43788a590c439fef75b499b2f89
 
     shadowColor: '#200606',
     shadowOffset: {
