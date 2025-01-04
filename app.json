@@ -1,11 +1,7 @@
 {
   "expo": {
     "name": "decajonapp",
-<<<<<<< HEAD
-    "slug": "snack-2e19ae93-a8cb-4252-ab14-6fcdd6ee8015",
-=======
-    "slug": "snack-da8e0198-5b31-4133-8aed-949d8526b7a5",
->>>>>>> b9c1e8de9d11e43788a590c439fef75b499b2f89
+    "slug": "snack-b418201c-e655-4bcd-b1ae-be0f73e598bd",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

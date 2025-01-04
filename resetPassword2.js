@@ -11,16 +11,13 @@ import {
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const CreateAccount = () => {
-  const [nombre, setNombre] = useState('');
-  const [apellido1, setApellido1] = useState('');
-  const [apellido2, setApellido2] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [newPassword, setNewPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   
 
   const handleLogin = () => {
-    console.log('Email:', email);
-    console.log('Password:', password);
+    console.log('newPassword:', newPassword);
+    console.log('confirmPassword:', confirmPassword);
   };
 
   return (
@@ -36,37 +33,43 @@ const CreateAccount = () => {
 
 
       <View style={styles.header}>
-        <Text style={styles.title}>Olvidé mi contraseña</Text>
-        <Text style={styles.subtitle}>Ingresa tu correo, si el correo
-        está registrado, enviaremos un correo con un link para crear una 
-        nueva contraseña.</Text>
-      </View>
-
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Icon 
-          name="send" 
-          color="#200606" 
-          size={150} 
-          padding={1}
-          style={{ transform: [{ rotate: '-45deg' }] }} 
-        />
+        <Text style={styles.title}>Reestablecer contraseña</Text>
+        <Text style={styles.subtitle}>
+          La nueva contraseña debe tener:
+          {"\n\t\t"}ꞏ Entre 8-24 caracteres
+          {"\n\t\t"}ꞏ Mayúsculas y minúsculas
+          {"\n\t\t"}ꞏ Al menos un caracter especial
+        </Text>
       </View>
 
       <View style={styles.form}>
 
         <View style={styles.inputLabel}>
-            <Icon name="email" color="#200606" size={30} />
+            <Icon name="looks-one" color="#200606" size={30} />
+            <Icon name="lock" color="#200606" size={30} />
 
             <TextInput
               style={styles.input}
-              placeholder="Correo"
-              onChangeText={setEmail}
-              value={email}
+              placeholder="Nueva contraseña"
+              onChangeText={setNewPassword}
+              value={newPassword}
+            />
+          </View>
+
+          <View style={styles.inputLabel}>
+            <Icon name="looks-two" color="#200606" size={30} />
+            <Icon name="lock" color="#200606" size={30} />
+
+            <TextInput
+              style={styles.input}
+              placeholder="Confirmar contraseña"
+              onChangeText={setConfirmPassword}
+              value={confirmPassword}
             />
           </View>
 
         <TouchableOpacity style={styles.button} onPress={handleLogin}>
-          <Text style={styles.buttonText}>Recuperar</Text>
+          <Text style={styles.buttonText}>Reestablecer</Text>
         </TouchableOpacity>
       </View>
       
@@ -82,11 +85,13 @@ const styles = StyleSheet.create({
   header: {
     padding: 20,
     marginTop: 20,
-    alignItems: 'center',
+    marginLeft: 30,
+    alignItems: 'left',
   },
   title: {
     fontSize: 32,
     fontWeight: 'bold',
+    textAlign: 'left',
 
     textShadowColor: 'gray',
     textShadowOffset: { width: 0, height: 1 },
@@ -94,8 +99,9 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     padding: 18,
+    paddingLeft: 0,
     fontSize: 22,
-    textAlign: 'center',
+    textAlign: 'left',
   },
   form: {
     padding: 20,
