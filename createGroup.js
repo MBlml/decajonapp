@@ -7,25 +7,31 @@ import {
   Image,
   TouchableOpacity,
 } from 'react-native';
+
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-const CreateAccount = () => {
-  const [nameGroup, setNameGroup] = useState(null); 
+const CreateGroup = () => {
+  const [nameGroup, setNameGroup] = useState('');
 
+  const handleLogin = () => {
+    console.log('nameGroup:', nameGroup);
+  };
+
+  const returnPage = () => {
+    console.log('Return page button');
+  };
 
   return (
     <View style={styles.container}>
       <View style={styles.btnContainer}>
-        <TouchableOpacity style={styles.btn}>
+        <TouchableOpacity style={styles.btn} onPress={returnPage}>
           <Icon name="navigate-before" color="white" size={30} />
         </TouchableOpacity>
       </View>
 
       <View style={styles.header}>
         <Text style={styles.title}>Crear nuevo grupo</Text>
-        <Text style={styles.subtitle}>
-          ¿Cuál es el nombre del grupo?
-        </Text>
+        <Text style={styles.subtitle}>¿Cuál es el nombre del grupo?</Text>
       </View>
 
       <View style={styles.nameGroupInput}>
@@ -39,7 +45,7 @@ const CreateAccount = () => {
         />
       </View>
 
-      <TouchableOpacity style={styles.button} >
+      <TouchableOpacity style={styles.button} onPress={handleLogin}>
         <Text style={styles.buttonText}>Siguiente</Text>
       </TouchableOpacity>
 
@@ -53,7 +59,7 @@ const CreateAccount = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fbf2e2',
+    backgroundColor: '#F6EDE1',
   },
   header: {
     padding: 20,
@@ -122,7 +128,8 @@ const styles = StyleSheet.create({
     marginVertical: 0,
     fontSize: 22,
     width: '90%',
-  },button: {
+  },
+  button: {
     backgroundColor: '#200606',
     padding: 15,
     margin: 40,
@@ -140,7 +147,7 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.2,
     shadowRadius: 10,
-    elevation: 16, 
+    elevation: 16,
   },
   buttonText: {
     fontSize: 20,
@@ -149,4 +156,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CreateAccount;
+export default CreateGroup;

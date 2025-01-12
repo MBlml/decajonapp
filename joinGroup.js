@@ -9,8 +9,9 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-const CreateAccount = () => {
-  const [nameGroup, setNameGroup] = useState(null); 
+const JoinGroup = () => {
+  const [idGroup, setIdGroup] = useState('ID del grupo'); 
+  const [passwordGroup, setPasswordGroup] = useState('Contraseña'); 
 
 
   return (
@@ -34,8 +35,8 @@ const CreateAccount = () => {
         <TextInput
           style={styles.input}
           placeholder="ID del grupo"
-          onChangeText={setNameGroup}
-          value={nameGroup}
+          onChangeText={setIdGroup}
+          value={idGroup}
         />
       </View>
 
@@ -51,8 +52,8 @@ const CreateAccount = () => {
         <TextInput
           style={styles.input}
           placeholder="Passkey"
-          onChangeText={setNameGroup}
-          value={nameGroup}
+          onChangeText={setPasswordGroup}
+          value={passwordGroup}
         />
       </View>
 
@@ -90,9 +91,6 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 38,
     fontWeight: 'bold',
-    textShadowColor: 'gray',
-    textShadowOffset: { width: 0, height: 1 },
-    textShadowRadius: 2,
   },
   subtitle: {
     fontSize: 22,
@@ -190,4 +188,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CreateAccount;
+export default JoinGroup;

@@ -8,14 +8,16 @@ import {
   TouchableOpacity,
   Platform,
 } from 'react-native';
+
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import DateTimePicker from '@react-native-community/datetimepicker';
 
 const NewEvent = () => {
   const [date, setDate] = useState(new Date());
   const [show, setShow] = useState(false);
-  const [formattedDate, setFormattedDate] = useState('');
-  const [eventType, setEventType] = useState('');
+
+  const [formattedDate, setFormattedDate] = useState('Fecha');
+  const [eventType, setEventType] = useState('Tipo de evento');
 
   const handleDateChange = (event, selectedDate) => {
     const currentDate = selectedDate || date;
@@ -29,10 +31,20 @@ const NewEvent = () => {
     setFormattedDate(formatted);
   };
 
+  const handleLogin = () => { 
+    console.log(formattedDate);
+    console.log(eventType);
+  };
+
+  const returnPage = () => {
+    console.log('Return page button');
+  };
+
   return (
     <View style={styles.container}>
+
       <View style={styles.btnContainer}>
-        <TouchableOpacity style={styles.btn}>
+        <TouchableOpacity style={styles.btn} onPress={returnPage}>
           <Icon name="navigate-before" color="white" size={30} />
         </TouchableOpacity>
       </View>
@@ -46,11 +58,8 @@ const NewEvent = () => {
         <Icon name="event" color="#200606" size={30} />
         <TouchableOpacity
           style={styles.dateInput}
-          onPress={() => setShow(true)}
-        >
-          <Text style={styles.dateText}>
-            {formattedDate || 'dd/mm/aaaa'}
-          </Text>
+          onPress={() => setShow(true)}>
+          <Text style={styles.dateText}>{formattedDate || 'dd/mm/aaaa'}</Text>
         </TouchableOpacity>
       </View>
 
@@ -73,7 +82,7 @@ const NewEvent = () => {
         />
       </View>
 
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button} onPress={handleLogin}>
         <Text style={styles.buttonText}>Siguiente</Text>
       </TouchableOpacity>
 
@@ -87,7 +96,7 @@ const NewEvent = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fbf2e2',
+    backgroundColor: '#F6EDE1',
   },
   header: {
     padding: 20,
@@ -98,9 +107,6 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 38,
     fontWeight: 'bold',
-    textShadowColor: 'gray',
-    textShadowOffset: { width: 0, height: 1 },
-    textShadowRadius: 2,
   },
   subtitle: {
     fontSize: 22,

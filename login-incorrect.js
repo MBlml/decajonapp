@@ -12,7 +12,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 
 //import { useNavigation } from '@react-navigation/native';
 
-const App = () => {
+const LoginIncorrect = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -83,7 +83,7 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#E4CCB0',
+    backgroundColor: '#F6EDE1',
     zIndex: 1,
   },
   header: {
@@ -185,7 +185,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default LoginIncorrect;
 
 /* 
 import React, { useState } from 'react';
@@ -201,7 +201,7 @@ import {
 
 import { useNavigation } from '@react-navigation/native';
 
-const App = () => {
+const LoginIncorrect = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -321,5 +321,5 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default LoginIncorrect;
  */

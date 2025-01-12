@@ -1,19 +1,12 @@
 import React, { useState } from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  TouchableOpacity,
-} from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 
-const Load = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
+const Preview2 = () => {
   const handleLogin = () => {
-    console.log('Email:', email);
-    console.log('Password:', password);
+    console.log('Funcion para avanzar a preview2');
+    //Funcion para avanzar a preview2
   };
 
   return (
@@ -22,10 +15,10 @@ const Load = () => {
         <Image style={styles.image} source={require('./assets/micro.png')} />
       </View>
       <View style={styles.btnContainer}>
-        <TouchableOpacity
-          style={styles.btn}
-        >
-          <Text style={styles.btnText}>     >     </Text>
+        <TouchableOpacity style={styles.btn}>
+          <Text style={styles.btnText}>
+            <Icon name="navigate-next" color="white" size={30} />
+          </Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -48,12 +41,13 @@ const styles = StyleSheet.create({
   },
   image: {
     height: '90%',
-    width: 300,
+    width: 290,
+    marginTop: '10%',
     borderRadius: 25,
   },
   btnContainer: {
     width: '100%',
-    alignItems: 'flex-end', 
+    alignItems: 'flex-end',
     paddingRight: 50,
   },
   btn: {
@@ -66,9 +60,9 @@ const styles = StyleSheet.create({
   },
   btnText: {
     color: 'white',
-    fontSize: 18,
     fontWeight: 'bold',
+    paddingHorizontal: 20,
   },
 });
 
-export default Load;
+export default Preview2;

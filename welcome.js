@@ -1,24 +1,33 @@
 import React, { useState } from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  TouchableOpacity,
-} from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
+
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-const CreateAccount = () => {
-  const [activeCard, setActiveCard] = useState(null); // Estado para rastrear la tarjeta seleccionada
+const Welcome = () => {
+  const [activeCard, setActiveCard] = useState(null);
 
   const handlePress = (card) => {
-    setActiveCard(card); // Actualiza la tarjeta activa
+    setActiveCard(card);
+
+    if (card == 'create') {
+      console.log('Option Create');
+      //Agregar funcinoalidades
+    } else if (card == 'join') {
+      console.log('Option join');
+      //Agregar funcinoalidades
+    } else {
+      console.log('Error...');
+    }
+  };
+
+  const returnPage = () => {
+    console.log('Return page button');
   };
 
   return (
     <View style={styles.container}>
       <View style={styles.btnContainer}>
-        <TouchableOpacity style={styles.btn}>
+        <TouchableOpacity style={styles.btn} onPress={returnPage}>
           <Icon name="navigate-before" color="white" size={30} />
         </TouchableOpacity>
       </View>
@@ -31,19 +40,11 @@ const CreateAccount = () => {
       </View>
 
       <View style={styles.cards}>
-        {/* Primera tarjeta */}
         <TouchableOpacity
-          style={[
-            styles.card,
-            activeCard === 'create' && styles.activeCard, // Cambia el estilo si es activa
-          ]}
-          onPress={() => handlePress('create')} // Cambia el estado al presionarla
-        >
+          style={[styles.card, activeCard === 'create' && styles.activeCard]}
+          onPress={() => handlePress('create')}>
           <Icon
-            style={[
-              styles.icon,
-              activeCard === 'create' && styles.activeIcon, // Cambia el fondo del ícono si es activa
-            ]}
+            style={[styles.icon, activeCard === 'create' && styles.activeIcon]}
             name="library-music"
             color="white"
             size={45}
@@ -51,19 +52,11 @@ const CreateAccount = () => {
           <Text style={styles.txt}>Crear nuevo grupo</Text>
         </TouchableOpacity>
 
-        {/* Segunda tarjeta */}
         <TouchableOpacity
-          style={[
-            styles.card,
-            activeCard === 'join' && styles.activeCard, // Cambia el estilo si es activa
-          ]}
-          onPress={() => handlePress('join')} // Cambia el estado al presionarla
-        >
+          style={[styles.card, activeCard === 'join' && styles.activeCard]}
+          onPress={() => handlePress('join')}>
           <Icon
-            style={[
-              styles.icon,
-              activeCard === 'join' && styles.activeIcon, // Cambia el fondo del ícono si es activa
-            ]}
+            style={[styles.icon, activeCard === 'join' && styles.activeIcon]}
             name="groups"
             color="white"
             size={45}
@@ -82,7 +75,7 @@ const CreateAccount = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fbf2e2',
+    backgroundColor: '#F6EDE1',
   },
   header: {
     padding: 20,
@@ -137,7 +130,7 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   activeCard: {
-    backgroundColor: '#763F0E', // Color de la tarjeta activa
+    backgroundColor: '#763F0E',
   },
   icon: {
     margin: 0,
@@ -147,7 +140,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#763F0E',
   },
   activeIcon: {
-    backgroundColor: '#200606', // Fondo del ícono cuando la tarjeta está activa
+    backgroundColor: '#200606',
   },
   txt: {
     color: 'white',
@@ -166,4 +159,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CreateAccount;
+export default Welcome;

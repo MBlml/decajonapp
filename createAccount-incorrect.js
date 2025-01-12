@@ -10,108 +10,106 @@ import {
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-const CreateAccount = () => {
+const CreateAccountIncorrect = () => {
   const [nombre, setNombre] = useState('');
   const [apellido1, setApellido1] = useState('');
   const [apellido2, setApellido2] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  
 
   const handleLogin = () => {
     console.log('Email:', email);
     console.log('Password:', password);
   };
 
+  const returnPage = () => {
+    console.log('Return page button')
+  };
+
   return (
     <View style={styles.container}>
-
       <View style={styles.btnContainer}>
-        <TouchableOpacity
-          style={styles.btn}
-        >
+        <TouchableOpacity style={styles.btn}  onPress={returnPage}>
           <Icon name="navigate-before" color="white" size={30} />
         </TouchableOpacity>
       </View>
-
 
       <View style={styles.header}>
         <Text style={styles.title}>Registro</Text>
       </View>
       <View style={styles.form}>
+        <View style={styles.inputLabel}>
+          <Icon name="person" color="#200606" size={30} />
+
+          <TextInput
+            style={styles.input}
+            placeholder="Nombre(s)"
+            onChangeText={setNombre}
+            value={nombre}
+          />
+        </View>
 
         <View style={styles.inputLabel}>
-            <Icon name="person" color="#200606" size={30} />
+          <Icon name="looks-one" color="#200606" size={30} />
 
-            <TextInput
-              style={styles.input}
-              placeholder="Nombre(s)"
-              onChangeText={setNombre}
-              value={nombre}
-            />
-          </View>
-        
-        <View style={styles.inputLabel}>
-            <Icon name="looks-one" color="#200606" size={30} />
-
-            <TextInput
-              style={styles.input}
-              placeholder="Primer apellido"
-              onChangeText={setApellido1}
-              value={apellido1}
-            />
-          </View>
+          <TextInput
+            style={styles.input}
+            placeholder="Primer apellido"
+            onChangeText={setApellido1}
+            value={apellido1}
+          />
+        </View>
 
         <View style={styles.inputLabel}>
-            <Icon name="looks-two" color="#200606" size={30} />
+          <Icon name="looks-two" color="#200606" size={30} />
 
-            <TextInput
-              style={styles.input}
-              placeholder="Segundo apellido"
-              onChangeText={setApellido2}
-              value={apellido2}
-            />
-          </View>
+          <TextInput
+            style={styles.input}
+            placeholder="Segundo apellido"
+            onChangeText={setApellido2}
+            value={apellido2}
+          />
+        </View>
 
         <View style={styles.inputLabel}>
-            <Icon name="email" color="#200606" size={30} />
+          <Icon name="email" color="#200606" size={30} />
 
-            <TextInput
-              style={styles.input}
-              placeholder="Email"
-              onChangeText={setEmail}
-              value={email}
-            />
-          </View>
-        
+          <TextInput
+            style={styles.input}
+            placeholder="Email"
+            onChangeText={setEmail}
+            value={email}
+          />
+        </View>
+
         <View style={styles.inputLabel}>
-            <Icon name="lock" color="#200606" size={30} />
+          <Icon name="lock" color="#200606" size={30} />
 
-            <TextInput
-              style={styles.input}
-              placeholder="Contraseña"
-              onChangeText={setPassword}
-              value={password}
-              secureTextEntry
-            />
-          </View>
+          <TextInput
+            style={styles.input}
+            placeholder="Contraseña"
+            onChangeText={setPassword}
+            value={password}
+            secureTextEntry
+          />
+        </View>
 
-          <Text style={styles.redText}>
-            ( ! ) Valor (campo) inválido, verificar.
-          </Text>
+        <Text style={styles.redText}>
+          ( ! ) Valor (campo) inválido, verificar.
+        </Text>
 
         <TouchableOpacity style={styles.button} onPress={handleLogin}>
           <Text style={styles.buttonText}>Siguiente</Text>
         </TouchableOpacity>
       </View>
-      
+
       <View>
         <Text style={styles.txt}>Ya tengo cuenta</Text>
-          <TouchableOpacity
-            style={styles.createAccount}
-            onPress={() => console.log('Create Account')}>
-            <Text style={styles.loginText}>Iniciar Sesión</Text>
-          </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.createAccount}
+          onPress={() => console.log('Create Account')}>
+          <Text style={styles.loginText}>Iniciar Sesión</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -129,10 +127,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 40,
-
-    textShadowColor: 'gray',
-    textShadowOffset: { width: 0, height: 3 },
-    textShadowRadius: 12,
+    fontWeight: 'bold',
   },
   form: {
     padding: 20,
@@ -171,7 +166,7 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.2,
     shadowRadius: 10,
-    elevation: 16, 
+    elevation: 16,
   },
   buttonText: {
     fontSize: 20,
@@ -181,7 +176,8 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-  },createAccount: {
+  },
+  createAccount: {
     padding: 20,
     alignItems: 'center',
   },
@@ -203,11 +199,11 @@ const styles = StyleSheet.create({
   },
   btnContainer: {
     width: '100%',
-    alignItems: 'flex-start', 
+    alignItems: 'flex-start',
     paddingRight: 1,
     marginTop: 50,
   },
-  
+
   btn: {
     backgroundColor: '#200707',
     borderRadius: '50%',
@@ -218,4 +214,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CreateAccount;
+export default CreateAccountIncorrect;

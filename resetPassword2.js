@@ -10,69 +10,66 @@ import {
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-const CreateAccount = () => {
+const ResetPassword2 = () => {
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  
 
   const handleLogin = () => {
     console.log('newPassword:', newPassword);
     console.log('confirmPassword:', confirmPassword);
   };
+  
+  const returnPage = () => {
+    console.log('Return page button')
+  };
 
   return (
     <View style={styles.container}>
-
       <View style={styles.btnContainer}>
-        <TouchableOpacity
-          style={styles.btn}
-        >
+        <TouchableOpacity style={styles.btn} onPress={returnPage}>
           <Icon name="navigate-before" color="white" size={30} />
         </TouchableOpacity>
       </View>
-
 
       <View style={styles.header}>
         <Text style={styles.title}>Reestablecer contraseña</Text>
         <Text style={styles.subtitle}>
           La nueva contraseña debe tener:
-          {"\n\t\t"}ꞏ Entre 8-24 caracteres
-          {"\n\t\t"}ꞏ Mayúsculas y minúsculas
-          {"\n\t\t"}ꞏ Al menos un caracter especial
+          {'\n\t\t'}ꞏ Entre 8-24 caracteres
+          {'\n\t\t'}ꞏ Mayúsculas y minúsculas
+          {'\n\t\t'}ꞏ Al menos un caracter especial
         </Text>
       </View>
 
       <View style={styles.form}>
+        <View style={styles.inputLabel}>
+          <Icon name="looks-one" color="#200606" size={30} />
+          <Icon name="lock" color="#200606" size={30} />
+
+          <TextInput
+            style={styles.input}
+            placeholder="Nueva contraseña"
+            onChangeText={setNewPassword}
+            value={newPassword}
+          />
+        </View>
 
         <View style={styles.inputLabel}>
-            <Icon name="looks-one" color="#200606" size={30} />
-            <Icon name="lock" color="#200606" size={30} />
+          <Icon name="looks-two" color="#200606" size={30} />
+          <Icon name="lock" color="#200606" size={30} />
 
-            <TextInput
-              style={styles.input}
-              placeholder="Nueva contraseña"
-              onChangeText={setNewPassword}
-              value={newPassword}
-            />
-          </View>
-
-          <View style={styles.inputLabel}>
-            <Icon name="looks-two" color="#200606" size={30} />
-            <Icon name="lock" color="#200606" size={30} />
-
-            <TextInput
-              style={styles.input}
-              placeholder="Confirmar contraseña"
-              onChangeText={setConfirmPassword}
-              value={confirmPassword}
-            />
-          </View>
+          <TextInput
+            style={styles.input}
+            placeholder="Confirmar contraseña"
+            onChangeText={setConfirmPassword}
+            value={confirmPassword}
+          />
+        </View>
 
         <TouchableOpacity style={styles.button} onPress={handleLogin}>
           <Text style={styles.buttonText}>Reestablecer</Text>
         </TouchableOpacity>
       </View>
-      
     </View>
   );
 };
@@ -80,7 +77,7 @@ const CreateAccount = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fbf2e2',
+    backgroundColor: '#F6EDE1',
   },
   header: {
     padding: 20,
@@ -91,11 +88,6 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 32,
     fontWeight: 'bold',
-    textAlign: 'left',
-
-    textShadowColor: 'gray',
-    textShadowOffset: { width: 0, height: 1 },
-    textShadowRadius: 2,
   },
   subtitle: {
     padding: 18,
@@ -141,7 +133,7 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.2,
     shadowRadius: 10,
-    elevation: 16, 
+    elevation: 16,
   },
   buttonText: {
     fontSize: 20,
@@ -154,7 +146,7 @@ const styles = StyleSheet.create({
   },
   btnContainer: {
     width: '100%',
-    alignItems: 'flex-start', 
+    alignItems: 'flex-start',
     paddingRight: 1,
     marginTop: 50,
   },
@@ -168,4 +160,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CreateAccount;
+export default ResetPassword2;

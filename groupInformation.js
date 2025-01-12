@@ -9,21 +9,26 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-const CreateAccount = () => {
-  const [nameGroup, setNameGroup] = useState(null); 
+const GroupInformation = () => {
+  const [nameGroup, setNameGroup] = useState('Nombre del \ngrupo'); 
+  const [idGroup, setIdGroup] = useState('ID del grupo'); 
+  const [passwordGroup, setPasswordGroup] = useState('Contraseña'); 
 
+  const returnPage = () => {
+    console.log('Return page button');
+  };
 
   return (
     <View style={styles.container}>
       <View style={styles.btnContainer}>
-        <TouchableOpacity style={styles.btn}>
+        <TouchableOpacity style={styles.btn} onPress={returnPage}>
           <Icon name="navigate-before" color="white" size={30} />
         </TouchableOpacity>
       </View>
 
       <View style={styles.header}>
         <Text style={styles.title}>
-          Mariachi{'\n'}Mexcalli
+          {nameGroup}
         </Text>
         <Text style={styles.subtitle}>
           Tu ID del grupo es:
@@ -34,7 +39,7 @@ const CreateAccount = () => {
         <Icon name="groups" color="#200606" size={50} />
 
         <Text style={styles.idGroup}>
-          MMEX12
+          {idGroup}
         </Text>
       </View>
 
@@ -48,16 +53,18 @@ const CreateAccount = () => {
         <Icon name="key" color="#200606" size={50} />
 
         <Text style={styles.idGroup}>
-          Xm9KpL3
+          {passwordGroup}
         </Text>
       </View>
 
       <Text style={styles.subtitle3}>
-        Compártela con tus compañeros de grupo para que accedan a eventos y ensayos personalizados en conjunto.{'\n\n'}Solo tú tienes acceso a esta información.
+        Compártela con tus compañeros de grupo para que accedan a 
+        eventos y ensayos personalizados en conjunto.{'\n\n'}
+        Solo tú tienes acceso a esta información.
       </Text>
 
       <TouchableOpacity style={styles.button} >
-        <Text style={styles.buttonText}>Siguiente</Text>
+        <Text style={styles.buttonText}>Aceptar</Text>
       </TouchableOpacity>
 
       <View style={styles.footer}>
@@ -70,7 +77,7 @@ const CreateAccount = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fbf2e2',
+    backgroundColor: '#F6EDE1',
   },
   header: {
     padding: 20,
@@ -173,4 +180,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CreateAccount;
+export default GroupInformation;

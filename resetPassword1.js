@@ -10,26 +10,22 @@ import {
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-const CreateAccount = () => {
-  const [nombre, setNombre] = useState('');
-  const [apellido1, setApellido1] = useState('');
-  const [apellido2, setApellido2] = useState('');
+const ResetPassword = () => {
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
   
-
   const handleLogin = () => {
     console.log('Email:', email);
-    console.log('Password:', password);
+  };
+
+  const returnPage = () => {
+    console.log('Return page button')
   };
 
   return (
     <View style={styles.container}>
 
       <View style={styles.btnContainer}>
-        <TouchableOpacity
-          style={styles.btn}
-        >
+        <TouchableOpacity style={styles.btn} onPress={returnPage}>
           <Icon name="navigate-before" color="white" size={30} />
         </TouchableOpacity>
       </View>
@@ -77,7 +73,7 @@ const CreateAccount = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fbf2e2',
+    backgroundColor: '#F6EDE1',
   },
   header: {
     padding: 20,
@@ -87,10 +83,6 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 32,
     fontWeight: 'bold',
-
-    textShadowColor: 'gray',
-    textShadowOffset: { width: 0, height: 1 },
-    textShadowRadius: 2,
   },
   subtitle: {
     padding: 18,
@@ -162,4 +154,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CreateAccount;
+export default ResetPassword;
