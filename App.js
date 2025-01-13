@@ -1,93 +1,31 @@
 // app.js
 import React from 'react';
-import MyApp from './home.js'; //Cambiar el nombre del archivo para visualizarlo
-
-const App = () => {
-  return <MyApp />;
-};
-
-export default App; 
-
-/*
-// app.js
-import React, { useState, useEffect } from 'react'; 
-import { Animated, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import Load from './load';
+import Preview from './preview';
 import Login from './login';
+import Home from './home';
+import NewEvent from './newEvent';
+import ResetPassword from './resetPassword1';
 import CreateAccount from './createAccount';
-import ResetPassword from './resetPassword';
-import ResetPassword1 from './resetPassword1';
+
+const Stack = createStackNavigator(); 
 
 const App = () => {
-  const [currentScreen, setCurrentScreen] = useState('Load');
-  const [opacity] = useState(new Animated.Value(0));
-
-  useEffect(() => {
-    Animated.timing(opacity, {
-      toValue: 1,
-      duration: 1000,
-      useNativeDriver: true,
-    }).start();
-
-    const screens = ['Load', 'Login', 'CreateAccount', 'ResetPassword', 'ResetPassword1']; 
-    let currentIndex = 0;
-
-    const timer = setInterval(() => {
-      fadeOut().start();
-      setTimeout(() => {
-        currentIndex = (currentIndex + 1) % screens.length;
-        setCurrentScreen(screens[currentIndex]);
-        fadeIn().start();
-      }, 500);
-    }, 3000);
-
-    return () => {
-      clearInterval(timer);
-    };
-  }, [opacity]);
-
-  const fadeOut = () => {
-    return Animated.timing(opacity, {
-      toValue: 0,
-      duration: 500,
-      useNativeDriver: true,
-    });
-  };
-
-  const fadeIn = () => {
-    return Animated.timing(opacity, {
-      toValue: 1,
-      duration: 800,
-      useNativeDriver: true,
-    });
-  };
-
-  const renderScreen = () => {
-    switch (currentScreen) {
-      case 'Load':
-        return <Load />;
-      case 'Login':
-        return <Login />;
-      case 'CreateAccount':
-        return <CreateAccount />;
-      case 'ResetPassword':
-        return <ResetPassword />;
-      case 'ResetPassword1': 
-        return <ResetPassword1 />;
-      default:
-        return <Load />;
-    }
-  };
-
   return (
-    <View style={{ flex: 1 }}>
-      <Animated.View style={{ flex: 1, opacity }}>
-        {renderScreen()}
-      </Animated.View>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Load" screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="Load" component={Load}/>
+        <Stack.Screen name="Preview" component={Preview}/>
+        <Stack.Screen name="Login" component={Login}/>
+        <Stack.Screen name="Home" component={Home}/>
+        <Stack.Screen name="NewEvent" component={NewEvent}/>
+        <Stack.Screen name="ResetPassword" component={ResetPassword}/>
+        <Stack.Screen name="CreateAccount" component={CreateAccount}/>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
 
 export default App;
-
- */

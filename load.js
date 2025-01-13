@@ -1,19 +1,13 @@
-import React, { useState } from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-} from 'react-native';
+import React, { useEffect } from 'react';
+import { StyleSheet, Text, View, Image } from 'react-native';
 
-const Load = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
-  const handleLogin = () => {
-    console.log('Email:', email);
-    console.log('Password:', password);
-  };
+const Load = ({ navigation }) => {
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      navigation.navigate('Preview');
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, [navigation]);
 
   return (
     <View style={styles.body}>

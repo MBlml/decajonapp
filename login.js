@@ -1,78 +1,89 @@
-import React, { useState } from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  TextInput,
-  TouchableOpacity,
-} from 'react-native';
-
+import React, { useState, useRef } from 'react';
+import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-//import { useNavigation } from '@react-navigation/native';
-
-const Login = () => {
+const Login = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  
+  // Referencia para el campo de contraseña
+  const passwordRef = useRef(null);
 
   const handleLogin = () => {
     console.log('Email:', email);
     console.log('Password:', password);
+    navigation.navigate('Home');
+  };
+
+  const resetPassword = () => {
+    console.log('ResetPassword:');
+    navigation.navigate('ResetPassword');
+  };
+
+  const createAccount = () => {
+    console.log('CreateAccount:');
+    navigation.navigate('CreateAccount');
   };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <Image style={styles.image} source={require('./assets/logo.png')} />
-      </View>
-
-      <View style={styles.body}>
-        <Text style={styles.title}>Iniciar Sesión</Text>
-
-        <View style={styles.form}>
-          <View style={styles.emailInput}>
-            <Icon name="email" color="#200606" size={30} />
-
-            <TextInput
-              style={styles.input}
-              placeholder="Correo"
-              onChangeText={setEmail}
-              value={email}
-            />
-          </View>
-
-          <View style={styles.passwordInput}>
-            <Icon name="lock" color="#200606" size={30} />
-
-            <TextInput
-              style={styles.input}
-              placeholder="Contraseña"
-              onChangeText={setPassword}
-              value={password}
-              secureTextEntry
-            />
-          </View>
-
-          <TouchableOpacity
-            style={styles.forgotPassword}
-            onPress={() => console.log('Forgot Password')}>
-            <Text style={styles.txt}>Olvidé mi contraseña</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.button} onPress={handleLogin}>
-            <Text style={styles.buttonText}>Entrar</Text>
-          </TouchableOpacity>
-
-          <Text style={styles.txt}>¿Aún no tienes cuenta?</Text>
-          <TouchableOpacity
-            style={styles.createAccount}
-            onPress={() => console.log('Create Account')}>
-            <Text style={styles.createAccountText}>Registrarse</Text>
-          </TouchableOpacity>
+    <KeyboardAvoidingView
+      style={styles.container}
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+    >
+      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+        <View style={styles.header}>
+          <Image style={styles.image} source={require('./assets/logo.png')} />
         </View>
-      </View>
-    </View>
+
+        <View style={styles.body}>
+          <Text style={styles.title}>Iniciar Sesión</Text>
+
+          <View style={styles.form}>
+            {/* Campo de Correo */}
+            <View style={styles.emailInput}>
+              <Icon name="email" color="#200606" size={30} />
+              <TextInput
+                style={styles.input}
+                placeholder="Correo"
+                onChangeText={setEmail}
+                value={email}
+                returnKeyType="next" // Cambia el botón a "Next"
+                onSubmitEditing={() => passwordRef.current.focus()} // Pasa al siguiente campo
+                blurOnSubmit={false} // Evita que se cierre el teclado
+              />
+            </View>
+
+            {/* Campo de Contraseña */}
+            <View style={styles.passwordInput}>
+              <Icon name="lock" color="#200606" size={30} />
+              <TextInput
+                style={styles.input}
+                placeholder="Contraseña"
+                onChangeText={setPassword}
+                value={password}
+                secureTextEntry
+                ref={passwordRef} // Asigna la referencia
+                returnKeyType="done" // Cambia el botón a "Done"
+                onSubmitEditing={handleLogin} // Acción al pulsar "Done"
+              />
+            </View>
+
+            <TouchableOpacity style={styles.forgotPassword} onPress={resetPassword}>
+              <Text style={styles.txt}>Olvidé mi contraseña</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.button} onPress={handleLogin}>
+              <Text style={styles.buttonText}>Entrar</Text>
+            </TouchableOpacity>
+
+            <Text style={styles.txt}>¿Aún no tienes cuenta?</Text>
+            <TouchableOpacity style={styles.createAccount} onPress={createAccount}>
+              <Text style={styles.createAccountText}>Registrarse</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </ScrollView>
+    </KeyboardAvoidingView>
   );
 };
 
@@ -80,7 +91,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#F6EDE1',
-    zIndex: 1,
   },
   header: {
     alignItems: 'center',
@@ -109,13 +119,10 @@ const styles = StyleSheet.create({
     color: '#200606',
     backgroundColor: 'transparent',
     borderBottomColor: 'black',
-
     borderTopWidth: 0,
     borderLeftWidth: 0,
     borderRightWidth: 0,
-
     borderBottomWidth: 2,
-
     padding: 5,
     margin: 10,
     marginVertical: 10,
@@ -134,7 +141,6 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     alignItems: 'center',
     width: '80%',
-
     shadowColor: '#200606',
     shadowOffset: {
       width: 0,
@@ -177,140 +183,3 @@ const styles = StyleSheet.create({
 });
 
 export default Login;
-
-/* 
-import React, { useState } from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  TextInput,
-  TouchableOpacity,
-} from 'react-native';
-
-
-import { useNavigation } from '@react-navigation/native';
-
-const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
-  const handleLogin = () => {
-    console.log('Email:', email);
-    console.log('Password:', password);
-  };
-
-  return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <Image
-          style={styles.image}
-          source={require('./assets/logo.png')}
-        />
-      </View>
-      <View style={styles.form}>
-        <TextInput
-          style={styles.input}
-          placeholder="Email"
-          onChangeText={setEmail}
-          value={email}
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="Contraseña"
-          onChangeText={setPassword}
-          value={password}
-          secureTextEntry
-        />
-        <TouchableOpacity
-          style={styles.forgotPassword}
-          onPress={() => console.log('Forgot Password')}>
-          <Text style={styles.forgotPasswordText}>Olvidé mi contraseña</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={handleLogin}>
-          <Text style={styles.buttonText}>Iniciar Sesión</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.createAccount}
-          onPress={() => console.log('Create Account')}>
-          <Text style={styles.createAccountText}>Crear cuenta</Text>
-        </TouchableOpacity>
-      </View>
-      <View style={styles.footer}>
-      </View>
-    </View>
-  );
-};
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fbf2e2',
-  },
-  header: {
-    padding: 20,
-    marginTop: 100,
-    alignItems: 'center',
-  },
-  image: {
-    width: 250,
-    height: 200,
-  },
-  form: {
-    padding: 20,
-    backgroundColor: '#fcf9f9',
-    borderRadius: 20,
-    margin: 30,
-    marginTop: 80,
-    paddingTop: 30,
-    paddingBottom: 30,
-    paddingHorizontal: 30,
-    zIndex: 2,
-  },
-  input: {
-    borderWidth: 1,
-    backgroundColor: '#d9d9d9',
-    borderColor: 'transparent',
-    borderRadius: 10,
-    padding: 10,
-    marginVertical: 10,
-    fontSize: 20,
-  },
-  forgotPassword: {
-    padding: 10,
-    alignItems: 'center',
-  },
-  forgotPasswordText: {
-    fontSize: 16,
-    color: '#65b9fe',
-  },
-  button: {
-    backgroundColor: '#a18b7f',
-    padding: 10,
-    borderRadius: 50,
-    alignItems: 'center',
-  },
-  buttonText: {
-    fontSize: 20,
-    color: '#FFF',
-  },
-  createAccount: {
-    padding: 10,
-    alignItems: 'center',
-  },
-  createAccountText: {
-    fontSize: 16,
-    color: '#65b9fe',
-  },
-  footer: {
-    zIndex: 1,
-    backgroundColor: '#a18b7f',
-    borderRadius: 20,
-    height: '100%',
-    top: -300,
-  },
-});
-
-export default Login;
- */

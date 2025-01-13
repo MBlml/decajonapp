@@ -10,7 +10,7 @@ import {
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-const Home = () => {
+const Home = ({ navigation }) => {
   const [menuVisible, setMenuVisible] = useState(false);
   const slideAnim = useRef(new Animated.Value(300)).current;
 
@@ -19,15 +19,45 @@ const Home = () => {
   const songName = useState('Nombre de la canción');
   const songDetails = useState('Compositor/Cantante');
 
+  const newEvent = () => {
+    console.log('New Event Functions');
+    navigation.navigate('NewEvent');
+  };
+
+  const openCalendar = () => {
+    console.log('Opening Calendar');
+  };
+
+  const goHome = () => {
+    console.log('Going to home');
+  };
+
+  const goProfile = () => {
+    console.log('Going to profile');
+  };
+
+  const goEditInformation = () => {
+    console.log('Going to edit information');
+  };
+
+  const goNewGroup = () => {
+    console.log('Going to new group');
+  };
+
+  const logOut = () => {
+    console.log('logout');
+  };
 
   const toggleMenu = () => {
     if (menuVisible) {
+      console.log('closing menu');
       Animated.timing(slideAnim, {
         toValue: 300, // Fuera de la pantalla
         duration: 300,
         useNativeDriver: false,
       }).start(() => setMenuVisible(false));
     } else {
+      console.log('opening menu');
       setMenuVisible(true);
       Animated.timing(slideAnim, {
         toValue: 0, // Visible en pantalla
@@ -42,7 +72,7 @@ const Home = () => {
       <ScrollView contentContainerStyle={styles.content}>
         <Text style={styles.greeting}>¡Hola, {userName}!</Text>
 
-        <TouchableOpacity style={styles.newEventButton}>
+        <TouchableOpacity style={styles.newEventButton} onPress={newEvent}>
           <Text style={styles.newEventText}>Nuevo Evento</Text>
         </TouchableOpacity>
 
@@ -72,11 +102,11 @@ const Home = () => {
       </ScrollView>
 
       <View style={styles.footer}>
-        <TouchableOpacity style={styles.footerItem}>
+        <TouchableOpacity style={styles.footerItem} onPress={goHome}>
           <Icon name="home-filled" size={30} color="black" />
           <Text style={styles.footerText}>Inicio</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.footerItem}>
+        <TouchableOpacity style={styles.footerItem} onPress={openCalendar}>
           <Icon name="calendar-month" size={30} color="black" />
           <Text style={styles.footerText}>Calendario</Text>
         </TouchableOpacity>
@@ -98,17 +128,17 @@ const Home = () => {
               color="black"
             />
           </TouchableOpacity>
-          <TouchableOpacity style={styles.menuItem}>
+          <TouchableOpacity style={styles.menuItem} onPress={goProfile}>
             <Text style={styles.menuText}>Mi Perfil</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.menuItem}>
+          <TouchableOpacity style={styles.menuItem} onPress={goEditInformation}>
             <Text style={styles.menuText}>Editar Información</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.menuItem}>
+          <TouchableOpacity style={styles.menuItem} onPress={goNewGroup}>
             <Text style={styles.menuText}>Nuevo Grupo</Text>
           </TouchableOpacity>
           <View style={styles.divider} />
-          <TouchableOpacity style={styles.menuItem}>
+          <TouchableOpacity style={styles.menuItem} onPress={logOut}>
             <Text style={styles.menuText}>Cerrar Sesión</Text>
           </TouchableOpacity>
         </Animated.View>
@@ -212,7 +242,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     backgroundColor: '#F6EDE1',
     borderTopWidth: 1,
-    borderColor: '#EDC8A7', 
+    borderColor: '#EDC8A7',
     paddingTop: 15,
   },
   footerItem: {
