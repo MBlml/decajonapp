@@ -1,3 +1,14 @@
+# Pantallas adaptadas
+- load.js
+- login.js
+- login-incorrect.js
+- resetPassword1.js
+- resetPassword2.js
+
+
+
+# Instrucciones principales
+
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
 # Getting Started
