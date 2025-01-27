@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity, Animated } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { useNavigation } from '@react-navigation/native';
+
+//import { useNavigation } from '@react-navigation/native';
 
 const Preview = () => {
-  const [currentImage, setCurrentImage] = useState(require('./assets/violin.png')); // Imagen inicial
+  const [currentImage, setCurrentImage] = useState(require('../images/violin.png')); // Imagen inicial
   const [fadeAnim] = useState(new Animated.Value(1)); // Valor de opacidad inicial
   const [isButtonPressed, setIsButtonPressed] = useState(false); // Estado del botón
-  const navigation = useNavigation(); // Navegación
+  
+  //const navigation = useNavigation(); // Navegación
 
   const handleNext = () => {
     // Animación de fade out
@@ -17,8 +19,8 @@ const Preview = () => {
       useNativeDriver: true,
     }).start(() => {
       // Cambiar imagen o navegar después de la animación
-      if (currentImage === require('./assets/violin.png')) {
-        setCurrentImage(require('./assets/micro.png')); // Cambiar a la segunda imagen
+      if (currentImage === require('../images/violin.png')) {
+        setCurrentImage(require('../images/micro.png')); // Cambiar a la segunda imagen
         fadeAnim.setValue(1); // Reiniciar opacidad
       } else {
         navigation.navigate('Login'); // Navegar a la pantalla de Login
