@@ -2,13 +2,12 @@ import React, { useEffect } from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
 
-// Define el tipo de las pantallas disponibles en el Stack Navigator
 type RootStackParamList = {
-  Load: undefined;
-  Preview: undefined;
+  LoadScreen: undefined;
+  PreviewScreen: undefined;
 };
 
-type LoadScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Load'>;
+type LoadScreenNavigationProp = StackNavigationProp<RootStackParamList, 'LoadScreen'>;
 
 interface LoadProps {
   navigation: LoadScreenNavigationProp;
@@ -16,9 +15,8 @@ interface LoadProps {
 
 const Load: React.FC<LoadProps> = ({ navigation }) => {
   useEffect(() => {
-    console.log('NHOLAMUNDOavigating to Preview...');
     const timer = setTimeout(() => {
-      navigation.navigate('Preview');
+      navigation.navigate('PreviewScreen');
     }, 3000);
     return () => clearTimeout(timer);
   }, [navigation]);
