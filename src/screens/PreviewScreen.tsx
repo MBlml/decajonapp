@@ -9,22 +9,29 @@ type PreviewScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Prev
 
 const Preview: React.FC = () => {
   const navigation = useNavigation<PreviewScreenNavigationProp>(); 
-  const [currentImage, setCurrentImage] = useState<ImageSourcePropType>(require('../assets/violin.png')); 
+
+  // Tipar el estado
+  const [currentImage, setCurrentImage] = useState<ImageSourcePropType>(require('../assets/micro.png')); 
   const [fadeAnim] = useState(new Animated.Value(1));
   const [isButtonPressed, setIsButtonPressed] = useState<boolean>(false);
 
   const handleNext = () => {
+    // Animar la opacidad de la imagen actual a 0
     Animated.timing(fadeAnim, {
       toValue: 0,
       duration: 500,
       useNativeDriver: true,
     }).start(() => {
-      if (currentImage === require('../assets/violin.png')) {
-        setCurrentImage(require('../assets/micro.png')); 
-        fadeAnim.setValue(1);
+      // Cambiar la imagen inmediatamente después de la animación
+      if (currentImage === require('../assets/micro.png')) {
+        setCurrentImage(require('../assets/violin.png')); 
       } else {
-        console.log('Login');
+        // Una vez que se haya cambiado la imagen, navegar a 'LoginScreen'
+        navigation.navigate('LoginScreen'); 
       }
+
+      // Restaurar la opacidad a 1 para que la nueva imagen se vea de inmediato
+      fadeAnim.setValue(1); 
     });
   };
 
@@ -32,7 +39,7 @@ const Preview: React.FC = () => {
     <View style={styles.body}>
       <View style={styles.container}>
         <Animated.Image
-          style={[styles.image, { opacity: fadeAnim }]}
+          style={[styles.image, { opacity: fadeAnim }]} // Animación de opacidad aplicada a la imagen
           source={currentImage}
         />
       </View>
@@ -42,7 +49,7 @@ const Preview: React.FC = () => {
           onPressIn={() => setIsButtonPressed(true)}
           onPressOut={() => {
             setIsButtonPressed(false);
-            handleNext();
+            handleNext(); // Llamamos la función handleNext al soltar el botón
           }}
         >
           <Text style={styles.btnText}>
