@@ -6,6 +6,11 @@ import PreviewScreen from '../screens/PreviewScreen.tsx';
 import LoginScreen from '../screens/LoginScreen.tsx';
 import HomeScreen from '../screens/HomeScreen.tsx';
 
+import CreateAccount from '../screens/CreateAccount.tsx';
+import ForgotPassword from '../screens/ForgotPassword.tsx';
+import ResetPassword from '../screens/ResetPassword.tsx';
+
+
 //Agregar pantallas faltantes al stack navigator :)
 
 export type RootStackParamList = {
@@ -13,6 +18,9 @@ export type RootStackParamList = {
   PreviewScreen: undefined;
   LoginScreen: undefined;
   HomeScreen: undefined;
+  CreateAccount: undefined;
+  ForgotPassword: undefined;
+  ResetPassword: undefined;
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -25,6 +33,9 @@ const StackNavigator = () => {
         <Stack.Screen name="PreviewScreen" component={PreviewScreen} />
         <Stack.Screen name="LoginScreen" component={LoginScreen} />
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
+        <Stack.Screen name="CreateAccount" component={CreateAccount} />
+        <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
+        <Stack.Screen name="ResetPassword" component={ResetPassword} />
       </Stack.Navigator>
     </NavigationContainer>
   );

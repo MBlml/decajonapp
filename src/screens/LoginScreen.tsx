@@ -40,12 +40,12 @@ const Login: React.FC<LoginProps> = ({ navigation }) => {
 
   const resetPassword = () => {
     console.log('ResetPassword:');
-    console.log('ResetPassword');
+    navigation.navigate('ForgotPassword');
   };
 
   const createAccount = () => {
     console.log('CreateAccount:');
-    console.log('CreateAccount');
+    navigation.navigate('CreateAccount');
   };
 
   return (
@@ -68,6 +68,7 @@ const Login: React.FC<LoginProps> = ({ navigation }) => {
               <TextInput
                 style={styles.input}
                 placeholder="Correo"
+                placeholderTextColor="black"
                 onChangeText={setEmail}
                 value={email}
                 returnKeyType="next" // Cambia el botón a "Next"
@@ -82,6 +83,7 @@ const Login: React.FC<LoginProps> = ({ navigation }) => {
               <TextInput
                 style={styles.input}
                 placeholder="Contraseña"
+                placeholderTextColor="black"
                 onChangeText={setPassword}
                 value={password}
                 secureTextEntry
