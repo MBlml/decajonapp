@@ -111,8 +111,6 @@ const Home: React.FC<Props> = ({ navigation }) => {
 
       {menuVisible && (
         <Animated.View style={[styles.menu, { left: slideAnim }]}>
-          {' '}
-          {/* Animación */}
           <TouchableOpacity style={styles.closeButton} onPress={toggleMenu}>
             <Icon style={styles.closeButtonText} name="close" size={40} color="black" />
           </TouchableOpacity>
@@ -199,6 +197,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 4,
     elevation: 5,
+    alignItems: 'center', // Asegúrate de que el contenido esté centrado
   },
   cardText: {
     marginTop: 10,
@@ -252,7 +251,6 @@ const styles = StyleSheet.create({
     padding: 20,
     borderTopLeftRadius: 20,
     borderBottomLeftRadius: 20,
-
     shadowColor: '#000',
     shadowOffset: { width: -2, height: 0 },
     shadowOpacity: 0.2,

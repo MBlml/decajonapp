@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, ImageSourcePropType, TouchableOpacity, Animated } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { StackNavigationProp } from '@react-navigation/stack';
@@ -16,24 +16,28 @@ const Preview: React.FC = () => {
   const [isButtonPressed, setIsButtonPressed] = useState<boolean>(false);
 
   const handleNext = () => {
-    // Animar la opacidad de la imagen actual a 0
     Animated.timing(fadeAnim, {
       toValue: 0,
-      duration: 500,
+      duration: 300,
       useNativeDriver: true,
     }).start(() => {
-      // Cambiar la imagen inmediatamente después de la animación
       if (currentImage === require('../assets/micro.png')) {
         setCurrentImage(require('../assets/violin.png')); 
       } else {
-        // Una vez que se haya cambiado la imagen, navegar a 'LoginScreen'
         navigation.navigate('LoginScreen'); 
       }
-
-      // Restaurar la opacidad a 1 para que la nueva imagen se vea de inmediato
-      fadeAnim.setValue(1); 
     });
   };
+
+  useEffect(() => {
+    if (currentImage !== require('../assets/micro.png')) {
+      Animated.timing(fadeAnim, {
+        toValue: 1,
+        duration: 300,
+        useNativeDriver: true,
+      }).start();
+    }
+  }, [currentImage]);
 
   return (
     <View style={styles.body}>

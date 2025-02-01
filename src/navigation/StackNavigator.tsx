@@ -6,6 +6,8 @@ import PreviewScreen from '../screens/PreviewScreen.tsx';
 import LoginScreen from '../screens/LoginScreen.tsx';
 import HomeScreen from '../screens/HomeScreen.tsx';
 
+//Agregar pantallas faltantes al stack navigator :)
+
 export type RootStackParamList = {
   LoadScreen: undefined;
   PreviewScreen: undefined;
