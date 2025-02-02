@@ -130,7 +130,7 @@ const styles = StyleSheet.create({
       marginTop: 50,
     },
     image: {
-      marginTop: 200,
+      marginTop: 20,
       width: '70%',
       height: 100,
     },
