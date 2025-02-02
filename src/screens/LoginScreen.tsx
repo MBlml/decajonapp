@@ -40,7 +40,7 @@ const Login: React.FC<LoginProps> = ({ navigation }) => {
 
   const resetPassword = () => {
     console.log('ResetPassword:');
-    navigation.navigate('ForgotPassword');
+    console.log('ForgotPassword');
   };
 
   const createAccount = () => {
@@ -73,7 +73,6 @@ const Login: React.FC<LoginProps> = ({ navigation }) => {
                 value={email}
                 returnKeyType="next" // Cambia el botón a "Next"
                 onSubmitEditing={() => passwordRef.current?.focus()} // Pasa al siguiente campo
-                blurOnSubmit={false} // Evita que se cierre el teclado
               />
             </View>
 
