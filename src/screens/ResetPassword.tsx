@@ -29,13 +29,15 @@ const ResetPassword: React.FC<LoginProps> = ({ navigation }) => {
   const [newPassword, setNewPassword] = useState<string>('');
   const [confirmPassword, setConfirmPassword] = useState<string>('');
 
-  const handleLogin = (): void => {
+  const resetPassword = (): void => {
     console.log('newPassword:', newPassword);
     console.log('confirmPassword:', confirmPassword);
+    navigation.navigate('LoginScreen');
   };
   
   const returnPage = (): void => {
     console.log('Return page button');
+    navigation.navigate('ForgotPassword');
   };
 
   return (
@@ -83,7 +85,7 @@ const ResetPassword: React.FC<LoginProps> = ({ navigation }) => {
           />
         </View>
 
-        <TouchableOpacity style={styles.button} onPress={handleLogin}>
+        <TouchableOpacity style={styles.button} onPress={resetPassword}>
           <Text style={styles.buttonText}>Reestablecer</Text>
         </TouchableOpacity>
       </View>

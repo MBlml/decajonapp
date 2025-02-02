@@ -10,6 +10,12 @@ import CreateAccount from '../screens/CreateAccount.tsx';
 import ForgotPassword from '../screens/ForgotPassword.tsx';
 import ResetPassword from '../screens/ResetPassword.tsx';
 
+import CreateEvent from '../screens/CreateEvent.tsx';
+import WelcomeScreen from '../screens/WelcomeScreen.tsx';
+import CreateGroup from '../screens/CreateGroup.tsx';
+import GroupInformation from '../screens/GroupInformation.tsx';
+import JoinGroup from '../screens/JoinGroup.tsx';
+
 
 //Agregar pantallas faltantes al stack navigator :)
 
@@ -21,6 +27,11 @@ export type RootStackParamList = {
   CreateAccount: undefined;
   ForgotPassword: undefined;
   ResetPassword: undefined;
+  CreateEvent: undefined;
+  WelcomeScreen: undefined;
+  CreateGroup: undefined;
+  GroupInformation: undefined;
+  JoinGroup: undefined;
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -28,7 +39,7 @@ const Stack = createStackNavigator<RootStackParamList>();
 const StackNavigator = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="LoadScreen" screenOptions={{ headerShown: false }}>
+      <Stack.Navigator initialRouteName="WelcomeScreen" screenOptions={{ headerShown: false }}>
         <Stack.Screen name="LoadScreen" component={LoadScreen} />
         <Stack.Screen name="PreviewScreen" component={PreviewScreen} />
         <Stack.Screen name="LoginScreen" component={LoginScreen} />
@@ -36,6 +47,11 @@ const StackNavigator = () => {
         <Stack.Screen name="CreateAccount" component={CreateAccount} />
         <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
         <Stack.Screen name="ResetPassword" component={ResetPassword} />
+        <Stack.Screen name="CreateEvent" component={CreateEvent} />
+        <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
+        <Stack.Screen name="CreateGroup" component={CreateGroup} />
+        <Stack.Screen name="GroupInformation" component={GroupInformation} />
+        <Stack.Screen name="JoinGroup" component={JoinGroup} />
       </Stack.Navigator>
     </NavigationContainer>
   );

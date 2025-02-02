@@ -20,15 +20,17 @@ interface LoginProps {
   route: LoginScreenRouteProp;
 }
 
-const ResetPassword: React.FC<LoginProps> = ({ navigation }) => {
+const ForgotPassword: React.FC<LoginProps> = ({ navigation }) => {
   const [email, setEmail] = useState<string>('');
 
-  const handleLogin = (): void => {
+  const resetPassword = (): void => {
     console.log('Email:', email);
+    navigation.navigate('ResetPassword');
   };
 
   const returnPage = (): void => {
     console.log('Return page button');
+    navigation.navigate('LoginScreen');
   };
 
   return (
@@ -67,7 +69,7 @@ const ResetPassword: React.FC<LoginProps> = ({ navigation }) => {
           />
         </View>
 
-        <TouchableOpacity style={styles.button} onPress={handleLogin}>
+        <TouchableOpacity style={styles.button} onPress={resetPassword}>
           <Text style={styles.buttonText}>Recuperar</Text>
         </TouchableOpacity>
       </View>
@@ -157,4 +159,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ResetPassword;
+export default ForgotPassword;

@@ -22,6 +22,7 @@ const Home: React.FC<Props> = ({ navigation }) => {
   const newEvent = () => {
     console.log('New Event Functions');
     console.log('New Event');
+    navigation.navigate('CreateEvent');
   };
 
   const openCalendar = () => {
@@ -42,10 +43,12 @@ const Home: React.FC<Props> = ({ navigation }) => {
 
   const goNewGroup = () => {
     console.log('Going to new group');
+    navigation.navigate('CreateGroup');
   };
 
   const logOut = () => {
     console.log('logout');
+    navigation.navigate('LoginScreen');
   };
 
   const toggleMenu = () => {

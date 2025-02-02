@@ -27,9 +27,10 @@ const CreateAccount: React.FC<LoginProps> = ({ navigation }) => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 
-  const handleLogin = (): void => {
+  const createAccount = (): void => {
     console.log('Email:', email);
     console.log('Password:', password);
+    navigation.navigate('WelcomeScreen');
   };
 
   const returnPage = (): void => {
@@ -106,7 +107,7 @@ const CreateAccount: React.FC<LoginProps> = ({ navigation }) => {
           />
         </View>
 
-        <TouchableOpacity style={styles.button} onPress={handleLogin}>
+        <TouchableOpacity style={styles.button} onPress={createAccount}>
           <Text style={styles.buttonText}>Siguiente</Text>
         </TouchableOpacity>
       </View>
