@@ -1,3 +1,8 @@
+## 01/02/25
+- Todas las pantallas listas sin informacion real
+- Consultar pantallas a agregar y diseños
+- Sugerir y aplicar animaciones entre pantallas y botones
+
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
 # Getting Started
