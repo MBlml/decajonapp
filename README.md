@@ -3,100 +3,58 @@
 - Consultar pantallas a agregar y diseños
 - Sugerir y aplicar animaciones entre pantallas y botones
 
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# DeCajonApp
 
-# Getting Started
+DeCajonApp es una aplicación móvil desarrollada con **React Native**. Esta aplicación está diseñada para gestionar eventos, ensayos y grupos musicales. A continuación, se describen las características principales del proyecto.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+## Características
 
-## Step 1: Start Metro
+- **Gestión de Eventos**: Permite crear, editar y visualizar eventos próximos.
+- **Ensayos Sugeridos**: Muestra una lista de ensayos sugeridos basados en el grupo musical del usuario.
+- **Perfil de Usuario**: Los usuarios pueden ver y editar su perfil.
+- **Grupos Musicales**: Los usuarios pueden crear y gestionar grupos musicales.
+- **Animaciones**: Se han implementado animaciones entre pantallas y botones para mejorar la experiencia del usuario.
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+## Pantallas
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+- **Pantalla de Inicio**: Muestra un saludo al usuario y un resumen de los eventos próximos y ensayos sugeridos.
+- **Pantalla de Crear Evento**: Permite a los usuarios crear nuevos eventos.
+- **Pantalla de Crear Grupo**: Permite a los usuarios crear nuevos grupos musicales.
+- **Pantalla de Perfil**: Permite a los usuarios ver y editar su perfil.
+- **Pantalla de Login**: Permite a los usuarios iniciar sesión en la aplicación.
 
-```sh
-# Using npm
-npm start
+## Tecnologías Utilizadas
 
-# OR using Yarn
-yarn start
-```
+- **React Native**: Framework principal para el desarrollo de la aplicación móvil.
+- **React Navigation**: Utilizado para la navegación entre pantallas.
+- **React Native Vector Icons**: Utilizado para los iconos en la aplicación.
+- **Animated API**: Utilizado para las animaciones en la aplicación.
 
-## Step 2: Build and run your app
+## Instalación
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+Para instalar y ejecutar este proyecto en tu máquina local, sigue estos pasos:
 
-### Android
-
-```sh
-# Using npm
-npm run android
-
-# OR using Yarn
-yarn android
-```
-
-### iOS
-
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
-```
-
-Then, and every time you update your native dependencies, run:
-
-```sh
-bundle exec pod install
-```
-
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
-# Using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
-
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
-
-## Step 3: Modify your app
-
-Now that you have successfully run the app, let's make changes!
-
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
-
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
-
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+1. Clona el repositorio:
+    ```sh
+    git clone https://github.com/tu-usuario/decajonapp.git
+    ```
+2. Navega al directorio del proyecto:
+    ```sh
+    cd decajonapp
+    ```
+3. Instala las dependencias:
+    ```sh
+    npm install
+    ```
+4. Inicia el servidor Metro:
+    ```sh
+    npx react-native start
+    ```
+5. En otra terminal, ejecuta la aplicación en tu dispositivo o emulador:
+    ```sh
+    npx react-native run-android
+    ```
+    o
+    ```sh
+    npx react-native run-ios
+    ```
