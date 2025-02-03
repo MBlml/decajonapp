@@ -32,7 +32,7 @@ const CreateGroup: React.FC<LoginProps> = ({ navigation }) => {
 
   const returnPage = (): void => {
     console.log('Return page button');
-    navigation.navigate('WelcomeScreen');
+    navigation.goBack();
   };
 
   return (
