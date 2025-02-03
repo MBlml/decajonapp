@@ -34,7 +34,7 @@ const Welcome: React.FC<LoginProps> = ({ navigation }) => {
 
   const returnPage = (): void => {
     console.log('Return page button');
-    navigation.navigate('CreateAccount');
+    navigation.goBack();
   };
 
   return (
