@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, ScrollView, Animated, Dimensions, ViewComponent, _View } from 'react-native';
+import { StyleSheet, Text, TextInput, View, TouchableOpacity, ScrollView, Animated, Dimensions, ViewComponent, _View } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../navigation/StackNavigator';
@@ -105,41 +105,142 @@ const Home: React.FC<Props> = ({ navigation }) => {
     <View style={styles.container}>
       <Animated.View style={[styles.contentContainer, { transform: [{ scale: scaleAnim }] }]}>
         {showAIScreen ? (
-          // Pantalla de IA
 
-          <View style={{ backgroundColor: 'white', height: '100%', padding: 10, margin: -20 }}>
-          
-            // Ejemplo de mensaje de IA
-            <View style={{ backgroundColor: 'white', borderWidth: 1, borderColor: 'black', borderRadius: 15, borderBottomLeftRadius: 0, }}>
-              <View style={{ flexDirection: 'row', alignItems: 'center', }}>
-                <Icon name="auto-awesome" size={20} color="white" 
-                  style={{ textAlign: 'left', backgroundColor: '#4A1900', borderWidth: 1, borderColor: '#4A1900', borderRadius: 50, margin: 5, padding: 5, }} />
-                <Text style={{ fontSize: 18, }}>
-                  ¿Cómo puedo ayudarte?
-                </Text>
-              </View>
-            </View>
+        /*// Pantalla de IA */
+        <View style={{ flex: 1, padding: 10, margin: -20 }}>
 
-          </View>
-
-          
-
-/* 
-          // Ejemplo de mensaje de usuario
-          <View style={{ backgroundColor: 'white', borderWidth: 1, borderColor: 'black', borderRadius: 15, borderBottomLeftRadius: 0, }}>
-            <View style={{ flexDirection: 'row', alignItems: 'center', }}>
-              <Icon name="auto-awesome" size={20} color="white" 
-                style={{ textAlign: 'left', backgroundColor: '#4A1900', borderWidth: 1, borderColor: '#4A1900', borderRadius: 50, margin: 5, padding: 5, }} />
-              <Text style={{ fontSize: 18, }}>
+          <ScrollView style={{ marginBottom: 80 }}>
+            {/* // Ejemplo de mensaje de IA */}
+            <View 
+              style={{ 
+                backgroundColor: '#4A1900', 
+                marginBottom: 10, 
+                borderWidth: 1, 
+                borderColor: '#4A1900', 
+                borderRadius: 15, 
+                borderBottomLeftRadius: 0, 
+                padding: 3,
+                position: 'relative' // Para que el icono se posicione correctamente
+              }}
+            >
+              <Text style={{ fontSize: 18, marginLeft: 40, padding: 10, marginBottom: 5, color: 'white' }}>
                 ¿Cómo puedo ayudarte?
               </Text>
+
+              {/* Icono de IA en la esquina inferior izquierda */}
+              <Icon 
+                name="auto-awesome" 
+                size={20} 
+                color="#4A1900" 
+                style={{ 
+                  position: 'absolute', 
+                  left: 10, 
+                  bottom: 10, 
+                  backgroundColor: 'white', 
+                  borderWidth: 1, 
+                  borderColor: 'white', 
+                  borderRadius: 50, 
+                  padding: 5 
+                }} 
+              />
             </View>
-          </View> */
+
+            {/* // Ejemplo de mensaje de usuario */}
+            <View 
+              style={{ 
+                backgroundColor: 'white', 
+                marginBottom: 10, 
+                borderWidth: 1, 
+                borderColor: '#4A1900', 
+                borderRadius: 15, 
+                borderBottomRightRadius: 0, 
+                padding: 10, 
+                position: 'relative' // Para posicionar el icono en la parte inferior derecha
+              }}
+            >
+              <Text style={{ fontSize: 18, paddingRight: 40 }}>
+                Quiero crear un nuevo grupo llamado "Nombre del grupo". ¿Puedes ayudarme con eso?
+              </Text>
+
+              {/* Icono de usuario en la esquina inferior derecha */}
+              <Icon 
+                name="person" 
+                size={20} 
+                color="white" 
+                style={{ 
+                  position: 'absolute', 
+                  right: 10, 
+                  bottom: 10, 
+                  backgroundColor: '#4A1900', 
+                  borderWidth: 1, 
+                  borderColor: '#4A1900', 
+                  borderRadius: 50, 
+                  padding: 5 
+                }} 
+              />
+            </View>
+            
+            
+            
+            </ScrollView>
+
+            {/* // Escribir mensaje  */}
+            <View 
+              style={{ 
+                position: 'absolute', 
+                bottom: 30, 
+                left: 10, 
+                right: 10, 
+                backgroundColor: 'white', 
+                borderWidth: 1, 
+                borderColor: 'black', 
+                borderRadius: 50, 
+                paddingHorizontal: 10 
+              }}
+            >
+              <View 
+                style={{ 
+                  flexDirection: 'row', 
+                  alignItems: 'center', 
+                  paddingVertical: 5,
+                  justifyContent: 'space-between' 
+                }}
+              >
+                <Icon 
+                  name="edit" 
+                  size={25} 
+                  color="#4A1900" 
+                  style={{ marginRight: 5 }} 
+                />
+
+                <TextInput 
+                  style={{ fontSize: 18, flex: 1, color: 'black' }}
+                  placeholder="Escríbe..."
+                  placeholderTextColor="#999"
+                />
+
+                <TouchableOpacity onPress={() => console.log('Mensaje enviado')}>
+                  <Icon 
+                    name='send' 
+                    size={25} 
+                    color="#4A1900" 
+                    style={{ transform: [{ rotate: '-45deg' }] }} 
+                  />
+                </TouchableOpacity>
+              </View>
+            </View>
+          
+
+        {/* // Fin de la pantalla de IA */}
+        </View>
+
+          
+
 
 
         ) : (
           // Pantalla de inicio
-          <ScrollView contentContainerStyle={styles.content}>
+          <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
             <Text style={styles.greeting}>¡Hola, {userName}!</Text>
 
             <TouchableOpacity style={styles.newEventButton} onPress={newEvent}>
