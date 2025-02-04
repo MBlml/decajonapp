@@ -3,7 +3,7 @@ import { StyleSheet, Text, TextInput, View, TouchableOpacity, ScrollView, Animat
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../navigation/StackNavigator';
-import {getChatbotResponse } from '../utils/chatbotResponses';
+import getChatbotResponse from '../utils/chatbotResponses';
 
 type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'HomeScreen'>;
 
@@ -131,7 +131,10 @@ const Home: React.FC<Props> = ({ navigation }) => {
 
       // Respuesta automática del chatbot
       setTimeout(() => {
-        const botResponse = getChatbotResponse(inputText, userName, groupName, songName, songDetails);
+        const nextRehearsalDate = '2024-12-31'; 
+        const botResponse = getChatbotResponse(
+          inputText, userName, groupName, songName, 
+          songDetails, nextRehearsalDate, [''], '', '');
         const botMessage: Message = {
           id: messages.length + 2,
           text: botResponse,
