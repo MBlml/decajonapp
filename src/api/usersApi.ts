@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-const API_URL = 'https://tu-backend.com/api/users'; 
+const API_URL = 'https://10.0.2.2:8080/api/users'; 
 
 export const registerUser = async (userData: {
-  firstName: string;
+  name: string;
   lastName1: string;
   lastName2: string;
   email: string;
