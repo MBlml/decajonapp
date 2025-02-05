@@ -35,7 +35,7 @@ const CreateAccount: React.FC<LoginProps> = ({ navigation }) => {
   
     try {
       await registerUser({ 
-        firstName: nombre, 
+        name: nombre, 
         lastName1: apellido1, 
         lastName2: apellido2, 
         email, 

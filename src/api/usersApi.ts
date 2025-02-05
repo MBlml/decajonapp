@@ -1,7 +1,3 @@
-import axios from 'axios';
-
-const API_URL = 'https://10.0.2.2:8080/api/users'; 
-
 export const registerUser = async (userData: {
   name: string;
   lastName1: string;
@@ -9,10 +5,33 @@ export const registerUser = async (userData: {
   email: string;
   password: string;
 }) => {
+  const formattedUserData = {
+    firstName: userData.name,
+    lastName: `${userData.lastName1} ${userData.lastName2}`, // Concatenación de apellidos
+    email: userData.email,
+    password: userData.password,
+  };
+
   try {
-    const response = await axios.post(`${API_URL}/register`, userData);
-    return response.data; 
-  } catch (error) {
-    throw error; 
+    const response = await fetch('http://10.0.2.2:8080/api/users', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formattedUserData),
+    });
+
+    const serverResponse = await response.text();
+    const data = JSON.parse(serverResponse);
+    if (!response.ok) {
+      throw new Error(`Error: ${response.status} - ${data.message || 'Unknow error'}`);
+    }
+
+    return data;
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      console.error('Fetch error:', error.message);
+    } else {
+      console.error('Unknown error:', error);
+    }
+    throw error;
   }
 };
