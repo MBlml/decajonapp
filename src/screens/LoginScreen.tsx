@@ -67,7 +67,7 @@ const Login: React.FC<LoginProps> = ({ navigation }) => {
               <Icon name="email" color="#200606" size={30} />
               <TextInput
                 style={styles.input}
-                placeholder="Correo"
+                placeholder="*************@gmail.com"
                 placeholderTextColor="black"
                 onChangeText={setEmail}
                 value={email}
@@ -82,7 +82,7 @@ const Login: React.FC<LoginProps> = ({ navigation }) => {
               <Icon name="lock" color="#200606" size={30} />
               <TextInput
                 style={styles.input}
-                placeholder="Contraseña"
+                placeholder="********"
                 placeholderTextColor="black"
                 onChangeText={setPassword}
                 value={password}

@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { StyleSheet, Text, TextInput, View, TouchableOpacity, ScrollView, Animated, Dimensions, Keyboard } from 'react-native';
+import { Image, StyleSheet, Text, TextInput, View, TouchableOpacity, ScrollView, Animated, Dimensions, Keyboard } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../navigation/StackNavigator';
@@ -28,7 +28,7 @@ const Home: React.FC<Props> = ({ navigation }) => {
   const scaleAnim = useRef(new Animated.Value(1)).current;
   const scrollViewRef = useRef<ScrollView>(null);
 
-  const userName = 'Nombre de usuario';
+  const userName = 'Juan Manuel';
   const groupName = 'Nombre del grupo';
   const songName = 'Nombre de la canción';
   const songDetails = 'Compositor/Cantante';
@@ -37,6 +37,10 @@ const Home: React.FC<Props> = ({ navigation }) => {
     setShowAIScreen(true); // Mostrar la pantalla de IA
     setShowCalendarScreen(false); // Ocultar la pantalla del calendario
   };
+
+  const openGroups = () => {
+    navigation.navigate('MyGroups'); 
+  }
 
   const goHome = () => {
     setShowAIScreen(false); // Mostrar la pantalla de inicio
@@ -270,38 +274,47 @@ const Home: React.FC<Props> = ({ navigation }) => {
         ) : (
           // Pantalla de inicio
           <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
+            <Image source={require('../assets/logo.png')}
+              style={{ width: 150, height: 50, alignSelf: 'flex-start', marginBottom: -20 }} 
+            />
             <Text style={styles.greeting}>¡Hola, {userName}!</Text>
-            <TouchableOpacity style={styles.newEventButton} onPress={newEvent}>
-              <Text style={styles.newEventText}>Nuevo Evento</Text>
+            <TouchableOpacity style={styles.newEventButton} onPress={openGroups}>
+              <Icon style={styles.iconCard} name="people" size={40} color="white" />
+              <Text style={styles.newEventText}>Mis grupos</Text>
             </TouchableOpacity>
+            <View style={styles.section}>
+              <Text style={styles.sectionTitle}>Ensayos sugeridos</Text>
+              {/* <View style={styles.card}>
+                <Text style={styles.groupName}>{groupName}</Text>
+                <Text style={styles.songTitle}>{songName}</Text>
+                <Text style={styles.songDetails}>{songDetails}</Text>
+              </View> */}
+              <View style={styles.card}>
+                <Text style={styles.groupName}>Mariachi</Text>
+                <Text style={styles.songTitle}>El Rey</Text>
+                <Text style={styles.songDetails}>Vicente Fernández</Text>
+              </View>
+              <View style={styles.card}>
+                <Text style={styles.groupName}>Mariachi</Text>
+                <Text style={styles.songTitle}>Cielito Lindo</Text>
+                <Text style={styles.songDetails}>Pedro Infante</Text>
+              </View>
+              <View style={styles.card}>
+                <Text style={styles.groupName}>Mariachi</Text>
+                <Text style={styles.songTitle}>La Bikina</Text>
+                <Text style={styles.songDetails}>Luis Miguel</Text>
+              </View>
+              <View style={styles.card}>
+                <Text style={styles.groupName}>Mariachi</Text>
+                <Text style={styles.songTitle}>Volver Volver</Text>
+                <Text style={styles.songDetails}>Vicente Fernández</Text>
+              </View>
+            </View>
             <View style={styles.section}>
               <Text style={styles.sectionTitle}>Tus eventos próximos</Text>
               <View style={styles.cardEvent}>
                 <Icon style={styles.iconCard} name="thumb-up" size={40} color="#4A1900" />
                 <Text style={styles.cardText}>Ahora mismo no tienes eventos próximos</Text>
-              </View>
-            </View>
-            <View style={styles.section}>
-              <Text style={styles.sectionTitle}>Ensayos sugeridos</Text>
-              <View style={styles.card}>
-                <Text style={styles.groupName}>{groupName}</Text>
-                <Text style={styles.songTitle}>{songName}</Text>
-                <Text style={styles.songDetails}>{songDetails}</Text>
-              </View>
-              <View style={styles.card}>
-                <Text style={styles.groupName}>{groupName}</Text>
-                <Text style={styles.songTitle}>{songName}</Text>
-                <Text style={styles.songDetails}>{songDetails}</Text>
-              </View>
-              <View style={styles.card}>
-                <Text style={styles.groupName}>{groupName}</Text>
-                <Text style={styles.songTitle}>{songName}</Text>
-                <Text style={styles.songDetails}>{songDetails}</Text>
-              </View>
-              <View style={styles.card}>
-                <Text style={styles.groupName}>{groupName}</Text>
-                <Text style={styles.songTitle}>{songName}</Text>
-                <Text style={styles.songDetails}>{songDetails}</Text>
               </View>
             </View>
           </ScrollView>
@@ -400,7 +413,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     marginVertical: 40,
-    color: '#4A4A4A',
+    color: '#4A1900',
   },
   newEventButton: {
     backgroundColor: '#4A1900',
@@ -426,7 +439,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     marginBottom: 10,
-    color: '#4A4A4A',
+    color: '#4A1900',
     textAlign: 'center',
   },
   card: {
@@ -467,13 +480,13 @@ const styles = StyleSheet.create({
   groupName: {
     fontSize: 16,
     fontWeight: 'bold',
-    color: '#4A4A4A',
+    color: '#4A1900',
     marginBottom: 5,
     textAlign: 'right',
   },
   songTitle: {
     fontSize: 16,
-    color: '#4A4A4A',
+    color: '#4A1900',
     marginBottom: 5,
     fontWeight: 'bold',
   },

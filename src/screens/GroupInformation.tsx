@@ -22,18 +22,18 @@ interface LoginProps {
 }
 
 const GroupInformation: React.FC<LoginProps> = ({ navigation }) => {
-  const [nameGroup, setNameGroup] = useState<string>('Nombre del \ngrupo');
-  const [idGroup, setIdGroup] = useState<string>('ID del grupo');
-  const [passwordGroup, setPasswordGroup] = useState<string>('Contraseña');
+  const [nameGroup, setNameGroup] = useState<string>('Mariachi');
+  const [idGroup, setIdGroup] = useState<string>('A08L2M4');
+  const [passwordGroup, setPasswordGroup] = useState<string>('WXP4T9');
 
   const returnPage = (): void => {
     console.log('Return page button');
-    navigation.navigate('CreateGroup');
+    navigation.goBack();
   };
 
   const goHome = (): void => {
     console.log('Go home button');
-    navigation.navigate('HomeScreen');
+    navigation.goBack();
   }
 
   return (
@@ -133,7 +133,7 @@ const styles = StyleSheet.create({
   },
   btn: {
     backgroundColor: '#200707',
-    borderRadius: 50, // Corregido, React Native no acepta '%' en borderRadius
+    borderRadius: 50, 
     paddingVertical: 10,
     paddingHorizontal: 10,
     marginLeft: 20,
@@ -146,6 +146,7 @@ const styles = StyleSheet.create({
   footer: {
     justifyContent: 'center',
     alignItems: 'center',
+    marginTop: 40,
   },
   container1: {
     flexDirection: 'row',

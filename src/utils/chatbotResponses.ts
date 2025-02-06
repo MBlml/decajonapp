@@ -14,26 +14,12 @@ const getChatbotResponse = (
 ): string => {
   let botResponse = '¡Hola! ¿En qué puedo ayudarte?';
 
-  if (inputText.toLowerCase().includes('hola')) {
-    botResponse = '¡Hola! ¿En qué puedo ayudarte?';
-  } else if (inputText.toLowerCase().includes('nombre')) {
-    botResponse = `Tu nombre es ${userName}.`;
-  } else if (inputText.toLowerCase().includes('grupo')) {
-    botResponse = `Tu grupo es ${groupName}.`;
-  } else if (inputText.toLowerCase().includes('canción')) {
-    botResponse = `La canción ${songName} por ${songDetails}.`;
-  } else if (inputText.toLowerCase().includes('próximo ensayo')) {
-    botResponse = `El próximo ensayo es el ${nextRehearsalDate}.`;
-  } else if (inputText.toLowerCase().includes('canciones') && inputText.toLowerCase().includes('ensayar')) {
-    if (Array.isArray(rehearsalSongs)) {
-      botResponse = `Las canciones que necesitas ensayar son: ${rehearsalSongs.join(', ')}.`;
-    } else {
-      botResponse = 'No se han definido las canciones para ensayar.';
-    }
-  } else if (inputText.toLowerCase().includes('estilo de canción')) {
-    botResponse = `El estilo de la canción es ${songStyle}.`;
-  } else if (inputText.toLowerCase().includes('evento')) {
-    botResponse = `El próximo evento es el ${eventDate}.`;
+  if (inputText.toLowerCase().includes('cancion') && inputText.toLowerCase().includes('grupo')) {
+    botResponse = "La canción 'Guadalajara' se ha agregado al grupo 'Mariachi' correctamente!";
+  } else if (inputText.toLowerCase().includes('canción') && inputText.toLowerCase().includes('grupo')) {
+    botResponse = "La canción 'Guadalajara' se ha agregado al grupo 'Mariachi' correctamente!";
+  } else if (inputText.toLowerCase().includes('ensayar')) {
+    botResponse = 'Las canciones pendientes por ensayar son:\n\n•El Rey\n-Vicente Fernández\n\n•Cielito Lindo\n-Pedro Infante\n\n•La Bikina\n-Luis Miguel\n\n•Volver Volver\n-Vicente Fernández\n\n•Guadalajara\n-Mariachi Vargas';
   }
 
   return botResponse;
